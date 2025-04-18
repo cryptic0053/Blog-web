@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block title %}All Blog Posts{% endblock %}
+
+{% block content %}
+<div class="mb-3 text-right">
+    <a class="btn btn-primary" href="{% url 'post_create' %}">+ Create New Post</a>
+</div>
+
+{% if posts %}
+    {% for post in posts %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">
+                    <a href="{% url 'post_details' post.id %}">{{ post.title }}</a>
+                </h3>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    By {{ post.author }} on {{ post.created_at }}
+                </h6>
+                <p class="card-text">
+                    {{ post.content|truncatewords:30 }}
+                </p>
+                <a href="{% url 'post_details' post.id %}" class="btn btn-outline-secondary btn-sm">Read More</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="alert alert-info">No posts found.</div>
+{% endif %}
+{% endblock %}
