@@ -2,7 +2,7 @@
 
 > A modern and responsive blog web app built using Django and Bootstrap 4.  
 > Users can register, log in, create blog posts, comment, like, and explore blogs via tags and categories.
-> Check it out:https://blog-web-6.onrender.com/
+> Check it out : https://blog-web-6.onrender.com/
 
 ---
 
